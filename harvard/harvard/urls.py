@@ -24,13 +24,14 @@ urlpatterns = [
     url(r'^tutoring/', include('tutoring.urls')),
 
     url(r'^$', TemplateView.as_view(template_name="home.html"), name='home'),
-    url(r'^signup/$', TemplateView.as_view(template_name="signup.html"),
-        name='signup'),
+    #url(r'^signup/$', TemplateView.as_view(template_name="signup.html"),
+    #    name='signup'),
     url(r'^email-verification/$',
         TemplateView.as_view(template_name="email_verification.html"),
         name='email-verification'),
     url(r'^tutoring/login/$', TemplateView.as_view(template_name="tutoring/login.html"),
         name='login'),
+    
     url(r'^logout/$', TemplateView.as_view(template_name="logout.html"),
         name='logout'),
     url(r'^password-reset/$',
@@ -47,11 +48,11 @@ urlpatterns = [
         TemplateView.as_view(template_name="password_change.html"),
         name='password-change'),
 
-    url(r'^search/$',TemplateView.as_view(template_name="search.html"),name='search'),
+    url(r'^tutoring/search$',TemplateView.as_view(template_name="tutoring/search.html"),name='search'),
 
-    url(r'^signup/$',
-        TemplateView.as_view(template_name="signup_tutor.html"),
-        name='signup_tutor'),
+    url(r'^tutoring/signup/$',
+        TemplateView.as_view(template_name="tutoring/signup.html"),
+        name='signup'),
 
     url(r'^favicon.ico/$', lambda x: HttpResponseRedirect(settings.STATIC_URL+'img/favicon.ico')),
 

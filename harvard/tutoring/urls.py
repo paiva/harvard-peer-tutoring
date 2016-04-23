@@ -32,11 +32,11 @@ urlpatterns = [
         TemplateView.as_view(template_name="password_change.html"),
         name='password-change'),
 
-    url(r'^search/$',TemplateView.as_view(template_name="search.html"),name='search'),
+    url(r'^tutoring/search/$',TemplateView.as_view(template_name="tutoring/search.html"),name='search'),
 
-    url(r'^signup/$',
-        TemplateView.as_view(template_name="signup_tutor.html"),
-        name='signup_tutor'),
+    url(r'^tutoring/signup/$',
+        TemplateView.as_view(template_name="tutoring/signup.html"),
+        name='signup'),
 
     url(r'^favicon.ico/$', lambda x: HttpResponseRedirect(settings.STATIC_URL+'img/favicon.ico')),
 

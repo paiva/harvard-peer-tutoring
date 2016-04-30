@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.template import loader
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -10,7 +11,6 @@ from django.http import HttpResponse
 # List all courses or create a new one
 # Url: courses/CS50
 class CourseList(APIView):
-
 	# For get requests
 	def get(self, request):
 		courses = Course.objects.all()
@@ -24,17 +24,14 @@ class CourseList(APIView):
 
 def index(request):
     
-    html = ""
-    all_departments = Department.objects.all()
-    
-    for d in all_departments:
-    	url = '/search/' + str(d.id) + '/'
-    	html += '<a href="' + url + '">' + d.department_name + '</a><br>'
-    return HttpResponse(html)
+	all_departments = Department.objects.all()
+	template = loader.get_template('search/search.html')
+	context = { 'all_departments' : all_departments } 	
+	return HttpResponse(template.render(context,request))
 
 
-def detail(request, course_id):
-	return HttpResponse("<h2>Details for Department ID " + str(course_id) + "</h2>")
+def detail(request, department_id):
+	return HttpResponse("<h2>Details for Department ID " + str(department_id) + "</h2>")
 
 
 #def index(request):

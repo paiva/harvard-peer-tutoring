@@ -5,8 +5,13 @@ from . import views
 
 urlpatterns = [
     
+    # /search/
     url(r'^$', views.index, name='index'),
     
+    # /search/23/
+    url(r'^(?P<course_id>[0-9]+)/$', views.detail, name='detail'),
+    
+
     #url(r'^tutoring/login/$', views.login, name='login'),
     #url(r'^$', TemplateView.as_view(template_name="home.html"), name='home'),
     #url(r'^signup/$', TemplateView.as_view(template_name="signup.html"),

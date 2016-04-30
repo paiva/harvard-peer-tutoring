@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'tutoring.apps.TutoringConfig',
+    'search.apps.SearchConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

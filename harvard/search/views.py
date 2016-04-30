@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course
+from .models import Course, Department, School
 from .serializers import CourseSerializer
 from django.http import HttpResponse
 
@@ -23,7 +23,19 @@ class CourseList(APIView):
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the tutoring index.")
+    
+    html = ""
+    all_departments = Department.objects.all()
+    
+    for d in all_departments:
+    	url = '/search/' + str(d.id) + '/'
+    	html += '<a href="' + url + '">' + d.department_name + '</a><br>'
+    return HttpResponse(html)
+
+
+def detail(request, course_id):
+	return HttpResponse("<h2>Details for Department ID " + str(course_id) + "</h2>")
+
 
 #def index(request):
 #	return render(request, 'tutoring/home.html')

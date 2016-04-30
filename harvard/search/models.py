@@ -25,5 +25,5 @@ class Course(models.Model):
 	school = models.ForeignKey(School, on_delete=models.CASCADE, default=None)
 
 	def __str__(self):
-		return self.course_code
+		return self.course_code + ' - ' + self.course_name
 

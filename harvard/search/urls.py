@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     
     # /search/23/
-    url(r'^(?P<course_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^(?P<department_id>[0-9]+)/$', views.detail, name='detail'),
     
 
     #url(r'^tutoring/login/$', views.login, name='login'),

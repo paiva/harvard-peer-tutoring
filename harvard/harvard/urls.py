@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^search/', include('search.urls')),
     url(r'^courses/', views.CourseList.as_view()),
-
+    
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

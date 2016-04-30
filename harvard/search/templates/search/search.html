@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "search/base.html" %}
 
 
 {% block content %}
@@ -9,5 +9,14 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 	</div>
-</div>	
+</div>
+
+<h1>Departments</h1>
+<ul>
+	{% for department in all_departments %}	
+	<li><a href="/search/{{ department.id }}">{{ department.department_name }}</a></li>
+	{% endfor %}
+</ul>
+
+
 {% endblock %}

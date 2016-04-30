@@ -17,11 +17,18 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView, RedirectView
+from rest_framework.urlpatterns import format_suffix_patterns
+from tutoring import views
 
 urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
+    url(r'^courses/', views.CourseList.as_view()),
+
+
     url(r'^tutoring/', include('tutoring.urls')),
+
+
 
     url(r'^$', TemplateView.as_view(template_name="home.html"), name='home'),
     #url(r'^signup/$', TemplateView.as_view(template_name="signup.html"),
@@ -53,7 +60,6 @@ urlpatterns = [
     url(r'^tutoring/signup/$',
         TemplateView.as_view(template_name="tutoring/signup.html"),
         name='signup'),
-
-    url(r'^favicon.ico/$', lambda x: HttpResponseRedirect(settings.STATIC_URL+'img/favicon.ico')),
-
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

@@ -6,14 +6,13 @@ class Course(models.Model):
 	course_name = models.CharField(max_length=200)
 	department = models.CharField(max_length=200)
 	school = models.CharField(max_length=200)
+	num_tutors = models.IntegerField(default=0)
 
 	def __str__(self):
 		return self.course_code
 
-class Department(models.Model):
-    
+class Department(models.Model):    
 	department_name = models.CharField(max_length=200)
-	department_courses = models.IntegerField(default=0)
 
 	def __str__(self):
 		return self.department_name
@@ -21,7 +20,6 @@ class Department(models.Model):
 
 class School(models.Model):
 	school_name = models.CharField(max_length=200)
-	school_courses = models.IntegerField(default=0)
 
 	def __str__(self):
 		return self.school_name

@@ -30,17 +30,25 @@ def index(request):
 
 
 def detail(request, department_id):
-	try:
-		department = Department.objects.get(pk=department_id)
-	except Department.DoesNotExist:
-		raise Http404("Department does not exist")
+	department = get_object_or_404(Department, pk=department_id)
 	return render(request, 'search/detail.html', { 'department' : department })
 
 
-def add_couse(request):
-	course = Course()
+def tutors(request, department_id):
+	department = get_object_or_404(Department, pk=department_id)
 
-	course 	
+	# Try to get the selected song, else return error
+	try:
+		selected_course = department.course_set.get(pk=request.POST['course'])
+	except (KeyError, course.DoesNotExist):
+		return render(request, 'search/detail.html',
+			{ 'department' : department,
+			   'error' : 'You did not selected a valid course' })
+	else:
+		# Make changes in the database 
+		selected_course.has_tutor_request = True
+		selected_course.save()
+		return render(request, 'search/detail.html', { 'department' : department })
 
 def course_count_per_department(request, department):
 	return department.course_set.count()

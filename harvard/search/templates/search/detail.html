@@ -6,11 +6,29 @@
 
 <h2>Courses</h2>
 
-<ul>
+
+{% if error %}
+	<p><b>{{ error }}</b></p>
+{% endif %}
+
+
+<!--<ul>
 	{% for course in department.course_set.all %}	
 		<li><b>{{ course.course_code }}</b> - {{ course.course_name }}</a></li>
 	{% endfor %}
-</ul>
+</ul>-->
 
+<form action="{% url 'search:tutors' department.id %}" method="post">{% csrf_token %}
+	{% for course in department.course_set.all %}
+		<input type="radio" id="course{{ forloop.counter }}" name="course" value="{{ course.id }}"></input>
+		<label for="course{{ forloop.counter }}">
+		{{ course.course_code }}
+		{% if course.has_tutor_request %}
+			- You requested a tutor for this course!
+		{% endif %}	
+		</label><br>
+	{% endfor %}
+	<input type="submit" value="Request Tutor">
+</form>
 
 {% endblock %}

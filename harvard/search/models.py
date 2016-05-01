@@ -23,6 +23,7 @@ class Course(models.Model):
 	num_tutors = models.IntegerField(default=0)
 	department = models.ForeignKey(Department, on_delete=models.CASCADE, default=None)
 	school = models.ForeignKey(School, on_delete=models.CASCADE, default=None)
+	has_tutor_request = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.course_code + ' - ' + self.course_name

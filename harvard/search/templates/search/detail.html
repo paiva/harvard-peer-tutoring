@@ -1,0 +1,16 @@
+{% extends "search/base.html" %}
+
+
+{% block content %}
+<h1>{{ department.department_name }}</h1>
+
+<h2>Courses</h2>
+
+<ul>
+	{% for course in department.course_set.all %}	
+		<li><b>{{ course.course_code }}</b> - {{ course.course_name }}</a></li>
+	{% endfor %}
+</ul>
+
+
+{% endblock %}

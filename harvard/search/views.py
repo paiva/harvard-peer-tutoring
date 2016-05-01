@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Course, Department, School
 from .serializers import CourseSerializer
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 
 
 # List all courses or create a new one
@@ -25,17 +25,25 @@ class CourseList(APIView):
 def index(request):
     
 	all_departments = Department.objects.all()
-	template = loader.get_template('search/search.html')
-	context = { 'all_departments' : all_departments } 	
-	return HttpResponse(template.render(context,request))
+	template = loader.get_template('search/search.html')	
+	return render(request, 'search/search.html', { 'all_departments' : all_departments } )
 
 
 def detail(request, department_id):
-	return HttpResponse("<h2>Details for Department ID " + str(department_id) + "</h2>")
+	try:
+		department = Department.objects.get(pk=department_id)
+	except Department.DoesNotExist:
+		raise Http404("Department does not exist")
+	return render(request, 'search/detail.html', { 'department' : department })
 
 
-#def index(request):
-#	return render(request, 'tutoring/home.html')
+def add_couse(request):
+	course = Course()
+
+	course 	
+
+def course_count_per_department(request, department):
+	return department.course_set.count()
 
 #def login(request):
 #	return render(request, 'tutoring/login.html')

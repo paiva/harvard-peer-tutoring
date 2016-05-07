@@ -1,7 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
 .navbar{
   border-radius: 0;
 }
 
+.navbar-brand{
+  font-family: 'Gloria Hallelujah', cursive;
+}
 
 #search.open {
     -webkit-transform: translate(0px, 0px) scale(1, 1);

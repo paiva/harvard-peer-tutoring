@@ -9,13 +9,13 @@ app_name = 'search'
 urlpatterns = [
     
     # /search/
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     
     # /search/department_id/
-    url(r'^(?P<department_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     
     # /search/department_id/
-    url(r'^(?P<department_id>[0-9]+)/tutors/$', views.tutors, name='tutors'),
+    #url(r'^(?P<department_id>[0-9]+)/tutors/$', views.tutors, name='tutors'),
 
     #url(r'^tutoring/login/$', views.login, name='login'),
     #url(r'^$', TemplateView.as_view(template_name="home.html"), name='home'),

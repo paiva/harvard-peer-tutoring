@@ -1,6 +1,8 @@
 {% extends "search/base.html" %}
 
 
+{% block title %} {{ department.department_name }} Details {% endblock %}
+
 {% block content %}
 <h1>{{ department.department_name }}</h1>
 
@@ -18,7 +20,7 @@
 	{% endfor %}
 </ul>-->
 
-<form action="{% url 'search:tutors' department.id %}" method="post">{% csrf_token %}
+<form action="#" method="post">{% csrf_token %}
 	{% for course in department.course_set.all %}
 		<input type="radio" id="course{{ forloop.counter }}" name="course" value="{{ course.id }}"></input>
 		<label for="course{{ forloop.counter }}">

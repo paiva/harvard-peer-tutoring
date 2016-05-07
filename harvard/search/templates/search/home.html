@@ -1,17 +1,21 @@
 {% extends "search/base.html" %}
 
-{% block content %}
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" style="text-align: center">
-    <h1>Harvard Peer Tutoring</h1>
-    <div style="padding-bottom: 10px;">
-    <img src="/static/img/harvard.jpg" width="35%" width="35%" />
-    </div>
-   <a href="{% url 'search' %}"><button type="button" class="btn btn-primary btn-lg" style="width: 161px;">Find a Tutor</button></a>
-    <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary btn-lg">Become a Tutor</button></a>
-  </div>
 
-  <div class="col-md-12 ">
-      <p class="text-center">Built in CS50.</p>
+{% block content %}
+<div class="jumbotron" style="text-align: center">
+    <form action="#" role="search" method="get">
+        <input type="text" class="form-control" name="q" value="" placeholder="type keyword(s) here" />
+    <a href="#"><button type="button" class="btn btn-primary btn-lg">Search</button></a>
+
+    </form>
   </div>
+</div>
+
+<h1>Departments</h1>
+<ul>
+  {% for department in object_list %} 
+    <li><a href="{% url 'search:detail' department.id %}">{{ department.department_name }}</a></li>
+  {% endfor %}
+</ul>
+
 {% endblock %}

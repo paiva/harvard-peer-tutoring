@@ -3,13 +3,10 @@
 
 {% block content %}
 <div class="jumbotron" style="text-align: center">
-	<div id="search">
-    <form>
-        <input type="search" name="search" value="" placeholder="type keyword(s) here" />
-		<div style="padding-top: 10px;">
-		<a href="#"><button type="button" class="btn btn-primary btn-lg" style="width: 161px;">Search</button></a>
-    	<a href="#"><button type="button" class="btn btn-primary btn-lg">I'm feeling Trendy</button></a>
-    	</div>
+    <form action="#" role="search" method="get">
+        <input type="text" class="form-control" name="q" value="" placeholder="type keyword(s) here" />
+		<a href="#"><button type="button" class="btn btn-primary btn-lg">Search</button></a>
+
     </form>
 	</div>
 </div>

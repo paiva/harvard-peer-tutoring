@@ -4,13 +4,15 @@ from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .models import Course, Department, School
 from .forms import UserForm
+from .serializers import CourseSerializer
 
 class IndexView(generic.ListView):
 	template_name = 'search/home.html'
 	context_object_name = 'object_list'
-
 
 	def get_queryset(self):
 		return Department.objects.all()
@@ -66,5 +68,12 @@ class UserFormView(View):
 					return redirect('search:index') #not redirecting...
 		return render(request, self.template_name, {'form':form})
 
+class CourseList(APIView):
 
+	def get(self,request):
+		courses = Course.objects.all()
+		serializer = CourseSerializer(courses,many=True)
+		return Response(serializer.data)
 
+	def post(self):
+		pass

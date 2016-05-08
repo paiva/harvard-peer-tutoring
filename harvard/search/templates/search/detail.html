@@ -20,7 +20,7 @@
 	{% endfor %}
 </ul>-->
 
-<form action="#" method="post">{% csrf_token %}
+<form action="" method="post">{% csrf_token %}
 	{% for course in department.course_set.all %}
 		<input type="radio" id="course{{ forloop.counter }}" name="course" value="{{ course.id }}"></input>
 		<label for="course{{ forloop.counter }}">

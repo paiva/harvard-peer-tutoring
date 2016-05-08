@@ -14,6 +14,9 @@ urlpatterns = [
     # /search/department_id/
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     
+    # /search/department/add
+    url(r'department/add/$', views.DepartmentCreate.as_view(), name='department-add'),
+
     # /search/department_id/
     #url(r'^(?P<department_id>[0-9]+)/tutors/$', views.tutors, name='tutors'),
 

@@ -8,43 +8,67 @@
 <div class="container-fluid course-container">
 	<div class="row">
 
-	<!-- Left Department info -->
-	<div class="col-sm-4 col-md-3">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<a href="{% url 'search:detail' department.id %}">
-					<img src="{{ deparment.department_logo.url }}" class="img-responsive">
-				</a>
-				<h1>{{ department.depatment_name }}</h1>
-			</div>
-		</div>
-	</div>
 
-	<!-- Right Department info -->
-	<div class="col-sm-4 col-md-3">
-		
-	</div>
+        <!-- Department Information -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'search:detail' department.id %}">
+                        {% if department.department_logo %}
+                            <img src="{{ department.department_logo.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ department.department_name }} <small>Harvard University</small></h1>
+                </div>
+            </div>
+        </div>
 
+	 	<!-- Courses Information -->
+        <div class="col-sm-8 col-md-9">
 
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'search:detail' department.id %}">View All</a></li>
+                <li role="presentation"><a href="#">Add New Course</a></li>
+            </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>All Courses</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Number of tutors</th>
+                            <th>Other?</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for course in department.course_set.all %}
+                            <tr>
+                                <td>{{ course.course_code }}</td>
+                                <td>{{ course.course_name }}</td>
+                                <td>{{ course.num_tutors }}</td>
+                                <td>
+                                    Nothing
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
 	</div>
 </div>
-<!--<ul>
-	{% for course in department.course_set.all %}	
-		<li><b>{{ course.course_code }}</b> - {{ course.course_name }}</a></li>
-	{% endfor %}
-</ul>-->
-
-<form action="" method="post">{% csrf_token %}
-	{% for course in department.course_set.all %}
-		<input type="radio" id="course{{ forloop.counter }}" name="course" value="{{ course.id }}"></input>
-		<label for="course{{ forloop.counter }}">
-		{{ course.course_code }}
-		{% if course.has_tutor_request %}
-			- You requested a tutor for this course!
-		{% endif %}	
-		</label><br>
-	{% endfor %}
-	<input type="submit" value="Request Tutor">
-</form>
 
 {% endblock %}

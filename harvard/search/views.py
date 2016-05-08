@@ -57,13 +57,13 @@ class UserFormView(View):
 			user.save()
 
 			# Returns User objects if credentials are correct
-			user = autheticate(username=username, password=password)
+			user = authenticate(username=username, password=password)
 
 			if user is not None:
 
 				if user.is_active:
 					login(request,user)
-					return redirect('search:index')
+					return redirect('search:index') #not redirecting...
 		return render(request, self.template_name, {'form':form})
 
 

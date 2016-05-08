@@ -17,6 +17,13 @@ urlpatterns = [
     # /search/department/add
     url(r'department/add/$', views.DepartmentCreate.as_view(), name='department-add'),
 
+    # /search/department/2/
+    url(r'department/(?P<pk>[0-9]+)/$', views.DepartmentUpdate.as_view(), name='department-update'),
+
+    # /search/department/2/delete
+    url(r'department/(?P<pk>[0-9]+)/delete/$', views.DepartmentDelete.as_view(), name='department-delete'),
+
+
     # /search/department_id/
     #url(r'^(?P<department_id>[0-9]+)/tutors/$', views.tutors, name='tutors'),
 

@@ -4,16 +4,30 @@
 {% block title %} {{ department.department_name }} Details {% endblock %}
 
 {% block content %}
-<h1>{{ department.department_name }}</h1>
 
-<h2>Courses</h2>
+<div class="container-fluid course-container">
+	<div class="row">
+
+	<!-- Left Department info -->
+	<div class="col-sm-4 col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<a href="{% url 'search:detail' department.id %}">
+					<img src="{{ deparment.department_logo.url }}" class="img-responsive">
+				</a>
+				<h1>{{ department.depatment_name }}</h1>
+			</div>
+		</div>
+	</div>
+
+	<!-- Right Department info -->
+	<div class="col-sm-4 col-md-3">
+		
+	</div>
 
 
-{% if error %}
-	<p><b>{{ error }}</b></p>
-{% endif %}
-
-
+	</div>
+</div>
 <!--<ul>
 	{% for course in department.course_set.all %}	
 		<li><b>{{ course.course_code }}</b> - {{ course.course_name }}</a></li>

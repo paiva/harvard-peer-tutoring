@@ -1,6 +1,8 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from .models import Course, Department, School
+
 
 class IndexView(generic.ListView):
 	template_name = 'search/home.html'
@@ -19,3 +21,11 @@ class DetailView(generic.DetailView):
 class DepartmentCreate(CreateView):
 	model = Department
 	fields = ['department_name', 'department_code', 'department_logo']
+
+class DepartmentUpdate(UpdateView):
+	model = Department
+	fields = ['department_name', 'department_code', 'department_logo']
+
+class DepartmentDelete(DeleteView):
+	model = Department
+	success_url = reverse_lazy('search:index')

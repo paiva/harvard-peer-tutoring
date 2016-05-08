@@ -1,21 +1,118 @@
 {% extends "search/base.html" %}
-
+{% block department_active %}active{% endblock %}
 
 {% block content %}
 <div class="jumbotron" style="text-align: center">
     <form action="#" role="search" method="get">
-        <input type="text" class="form-control" name="q" value="" placeholder="type keyword(s) here" />
-    <a href="#"><button type="button" class="btn btn-primary btn-lg">Search</button></a>
+        <input type="text" class="form-group" name="q" value="" placeholder="type keyword(s) here" />
+    <a href="#"><button type="button" class="btn btn-primary">Search</button></a>
 
     </form>
-  </div>
 </div>
 
+<!--
 <h1>Departments</h1>
+{% if object_list %}
 <ul>
   {% for department in object_list %} 
     <li><a href="{% url 'search:detail' department.id %}">{{ department.department_name }}</a></li>
   {% endfor %}
 </ul>
+{% endif %}-->
 
+<div class="department-container container-fluid">
+    <div class="row">
+
+        {% if object_list %}
+            {% for department in object_list %}
+                <div class=".col-xs-6 .col-sm-3 ">
+                    <div class="thumbnail">
+
+                        <!-- Logo -->
+                        <a href="{% url 'search:detail' department.id %}">
+                            <img src="{{ department.department_logo.url }}" class="img-responsive">
+                        </a>
+                        <div class="caption">
+                            <h2>{{ department.department_name }}</h2>
+                            <a href="{% url 'search:detail' department.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+                            <form action="" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="department_id" value="{{ department.id }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+
+                            <a href="" class="btn btn-default btn-sm btn-favorite" role="button">
+                                <span class="glyphicon glyphicon-star {% if department.is_favorite %}active{% endif %}"></span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                <a href="#">
+                    <button type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; Add an department
+                    </button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+    <!--{% if courses %}
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>courses</h3>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>course Title</th>
+                                    <th>Artist</th>
+                                    <th>Audio File</th>
+                                    <th>department</th>
+                                    <th>Favorite</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in courses %}
+                                    <tr>
+                                        <td>{{ course.course_title }}</td>
+                                        <td>{{ course.department.artist }}</td>
+                                        <td>
+                                            <a target="_blank" href="{{ course.audio_file.url }}">
+                                                <button type="button" class="btn btn-success btn-xs">
+                                                    <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'search:detail' course.department.id %}">
+                                                <img src="{{ course.department.department_logo.url }}" class="img-responsive" style="width: 20px; float: left; margin-right: 10px;" />
+                                            </a>
+                                            <a href="{% url 'search:detail' course.department.id %}">{{ course.department.department_title }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'search:favorite' course.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if course.is_favorite %}active{% endif %}"></span></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}-->
+
+</div>
 {% endblock %}

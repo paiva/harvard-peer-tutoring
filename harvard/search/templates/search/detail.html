@@ -29,8 +29,7 @@
         <div class="col-sm-8 col-md-9">
 
             <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                <li role="presentation" class="active"><a href="{% url 'search:detail' department.id %}">View All</a></li>
-                <li role="presentation"><a href="#">Add New Course</a></li>
+                <li role="presentation" class="active"><a href="{% url 'search:index' %}">Return</a></li>
             </ul>
 
             <div class="panel panel-default">
@@ -45,10 +44,10 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Code</th>
-                            <th>Name</th>
+                            <th>Course Code</th>
+                            <th>Couse Name</th>
                             <th>Number of tutors</th>
-                            <th>Other?</th>
+                            <th>Request Tutor</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -58,7 +57,9 @@
                                 <td>{{ course.course_name }}</td>
                                 <td>{{ course.num_tutors }}</td>
                                 <td>
-                                    Nothing
+                                    <button type="button" class="btn btn-success">
+                                            <i class="fa fa-smile-o" aria-hidden="true"></i> Request Tutor
+                                    </button>
                                 </td>
                             </tr>
                         {% endfor %}

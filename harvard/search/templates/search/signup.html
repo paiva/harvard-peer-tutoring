@@ -1,8 +1,11 @@
-{% extends "tutoring/base.html" %}
+{% extends "search/base.html" %}
+{% block title %}Sign up{% endblock %}
 
 {% block content %}
   <div class="row">
-    <h3>Signup</h3><hr/>
-    {% include "tutoring/fragments/signup_form.html" %}
+  	<div class="col-lg-6 col-lg-offset-3 text-center">
+    <h3>Sign up</h3><hr/>
+    {% include "search/fragments/signup_form.html" %}
+    </div>
   </div>
 {% endblock %}

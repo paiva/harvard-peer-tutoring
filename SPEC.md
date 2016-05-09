@@ -63,11 +63,14 @@ Models.py contains our DB models. There are basically three modules: Departments
 This project uses bootstrap templates
 
 
-Rest API
+### Rest API
 ---
 
 This project also implements a simple REST framework where we serialize courses into a JSON type of file.
-This logic is specified in by the `url(r'^courses/', views.CourseList.as_view())` url in urls.py
+This logic is specified in by the `url(r'^courses/', views.CourseList.as_view())` url in `urls.py`
+We have see a json reponse on `http://localhost:8000/courses` as follows:
+
+![JSON](hpt_4.png)
 
 Demo
 ----

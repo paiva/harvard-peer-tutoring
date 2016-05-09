@@ -2,3 +2,4 @@ venv
 harvard/tutoring/__pycache__/*
 harvard/tutoring/migrations/__pycache__/*
 *.pyc
+peer_tutoring.sql

@@ -32,6 +32,8 @@ After choosing a department, you can see courses that have tutors available. If
 you need assistance in one of this courses, you can click `Request Tutor` to
 request a tutor in that class.
 
+![Home Page](hpt_2.png)
+
 # Setup and Installation
 
 First, install python virtual environment with `virtualenv -p python3 venv` and

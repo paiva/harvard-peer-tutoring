@@ -78,11 +78,8 @@ We have see a json reponse on `http://localhost:8000/courses` as follows:
 You can access the built-in Django backend on `http://localhost:8000/admin` where
 admin credential will be asked.
 
-To create your admin person:
+![JSON](hpt_4.png)
 
 
-
-Demo
-----
-
-A demo can be found at harvard-peer-tutoring.herokuapp.com
+To create your admin person: `python manage.py createsuperuser` where you will
+be asked for an email and a password. 

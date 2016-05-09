@@ -48,15 +48,17 @@ through Django's built-in backend application. You can access the admin panel wi
 for storing information in the database.
 * `serializers.py`: similar to models.py, this file handles the serialization of data
 * `urls.py`: contains the logic behind our application urls. The root url is
-`localhost:8000/search`,
+`localhost:8000/search`, `localhost:8000/admin` is our admin url, and finally
+`localhost:8000/courses` is the url for the REST API.
+* `views.py`: contains our python methods. Rendering templates, use sign up, REST API
 
-Models.py
-----
+### Models.py
+---
 
 Models.py contains our DB models. There are basically three modules: Departments, Courses, and Schools.
 
-Templates
-----
+### Templates
+---
 
 This project uses bootstrap templates
 

@@ -7,7 +7,7 @@ Harvard Peer Tutoring was developed as part of Harvard's CS50 Final Project.
 It is a proof-of-concept application that allows Harvard students to search for peer tutors
 based on the departments (or concentrations) in a simple, fast, and reliable way.
 
-[need screeshot]
+![Home Page](hpt_1.png)
 
 For this delivery, we have only implemented 13 courses in three departments:
 
@@ -37,6 +37,12 @@ request a tutor in that class.
 First, install python virtual environment with `virtualenv -p python3 venv` and
 activate with the virtual environment with `source venv/bin/activate` and download
 dependencies with `pip install -r requirements.pip`
+
+Make code migrations:
+
+		cd harvard
+		python manage.py makemigrations
+		python manage.py migrate
 
 To run the application
 

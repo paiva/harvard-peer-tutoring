@@ -60,7 +60,7 @@ Models.py contains our DB models. There are basically three modules: Departments
 ### Templates
 ---
 
-This project uses bootstrap templates
+This project uses bootstrap templates. Templates are located on `harvard/search/templates/search`
 
 
 ### Rest API
@@ -82,4 +82,4 @@ admin credential will be asked.
 
 
 To create your admin person: `python manage.py createsuperuser` where you will
-be asked for an email and a password. 
+be asked for an email and a password.

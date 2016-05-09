@@ -46,6 +46,14 @@ Make code migrations:
 		python manage.py makemigrations
 		python manage.py migrate
 
+Create database on localhost
+
+		psql -d postgres
+		CREATE DATABASE peer_tutoring WITH OWNER postgres;
+		\q
+
+You can take a look at the postgres dump `peer_tutoring.sql`
+
 To run the application
 
 		cd harvard

@@ -51,10 +51,4 @@ To run the application
 		cd harvard
 		python manage.py runserver
 
-Assumes that you have postgresql installed in your computer. If you don't have postgresql set
-up in your machine, you can follow the instructions here https://help.ubuntu.com/community/PostgreSQL
-
-
-Start the local postgres database with ```pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start```
-* Step 6: Run the app locally on port 5000 with ```python migrate.py runserver```
-* Step 7: Open Google Chrome on http://localhost:8000
+Demo of the project: harvard-peer-tutoring.herokuapp.com

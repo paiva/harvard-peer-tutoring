@@ -38,7 +38,7 @@ request a tutor in that class.
 
 First, install python virtual environment with `virtualenv -p python3 venv` and
 activate with the virtual environment with `source venv/bin/activate` and download
-dependencies with `pip install -r requirements.pip`
+dependencies with `pip install -r requirements.txt`
 
 Make code migrations:
 

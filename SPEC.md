@@ -70,7 +70,17 @@ This project also implements a simple REST framework where we serialize courses 
 This logic is specified in by the `url(r'^courses/', views.CourseList.as_view())` url in `urls.py`
 We have see a json reponse on `http://localhost:8000/courses` as follows:
 
-![JSON](hpt_4.png)
+![JSON](hpt_3.png)
+
+### Admin panel
+---
+
+You can access the built-in Django backend on `http://localhost:8000/admin` where
+admin credential will be asked.
+
+To create your admin person:
+
+
 
 Demo
 ----

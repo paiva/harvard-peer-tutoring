@@ -1,1 +1,1 @@
-web: gunicorn harvard.wsgi:application --workers 3 --debug
+web: gunicorn harvard.wsgi:application --workers 3

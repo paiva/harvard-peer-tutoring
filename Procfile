@@ -1,1 +1,1 @@
-web: cd search && gunicorn harvard.wsgi:application -b "0.0.0.0:$PORT" -w 2
+web: gunicorn harvard.wsgi:application heroku-postgresql:hobby-dev

@@ -1,1 +1,1 @@
-web: gunicorn harvard.wsgi:application --workers 3
+web: gunicorn harvard.wsgi --workers 3

@@ -1,1 +1,1 @@
-web: gunicorn harvard.wsgi:application heroku-postgresql:hobby-dev
+web: gunicorn harvard.wsgi:application --workers 3 --debug

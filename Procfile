@@ -1,1 +1,1 @@
-web: gunicorn --workers 3 --debug run-heroku:app
+web: cd app && gunicorn app.wsgi:application -b "0.0.0.0:$PORT" -w 2

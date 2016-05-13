@@ -57,8 +57,8 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'postgres',
         'PASSWORD': '',
-        'HOST': 'localhost', # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-        'PORT': '', # Set to empty string for default.
+        'HOST': '128.30.27.191', # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+        'PORT': '6122', # Set to empty string for default.
     }
 }
 

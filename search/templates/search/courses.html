@@ -37,9 +37,11 @@
                                     <td>
                                         <a href="{% url 'search:detail' course.department.id %}">{{ course.department.department_name }}</a>
                                     </td>
-                                    <td>{{ course.num_tutors }}</td>
+                                    <td aling="center">{{ course.num_tutors }}</td>
                                     <td>
-                                        {{ course.has_tutor_request }}
+                                      <button type="button" class="btn btn-default">
+                                          Coming Soon
+                                      </button>
                                     </td>
                                 </tr>
                             {% endfor %}

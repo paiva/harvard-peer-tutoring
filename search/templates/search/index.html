@@ -18,7 +18,7 @@
                         </a>
                         <div class="caption text-center">
                             <h2>{{ department.department_name }}</h2>
-
+                            <p>{{ course.school }}</p>
                             <!-- View Details -->
                             <a href="{% url 'search:detail' department.id %}" class="btn btn-primary btn-sm" role="button" style="width: 75%;">View Courses</a>
 
@@ -64,10 +64,13 @@
                                             </a>
                                             <a href="{% url 'search:detail' course.department.id %}">{{ course.department.department_name }}</a>
                                         </td>
-                                        <td>
+                                        <td aling="center">
                                             {{ course.num_tutors }}
                                         </td>
-					<td>{{ course.has_tutor_request }}</td>
+					                              <td><button type="button" class="btn btn-default">
+                                            Coming Soon
+                                            </button>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                             </tbody>

@@ -70,7 +70,7 @@ def signup(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                departments = department.objects.filter(user=request.user)
+                departments = Department.objects.filter(user=request.user)
                 return render(request, 'search/index.html', {'departments': departments})
     context = {
         "form": form,

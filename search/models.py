@@ -1,16 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-
-class Department(models.Model):    
-	department_name = models.CharField(max_length=255)
-	department_code = models.IntegerField()
-	department_logo = models.FileField(null=True, blank=True)
-
-	def get_absolute_url(self):
-		return reverse('search:detail', kwargs={'pk' : self.pk})
-
-	def __str__(self):
-		return self.department_name
+from django.contrib.auth.models import Permission, User
 
 
 class School(models.Model):
@@ -20,9 +10,17 @@ class School(models.Model):
 	def __str__(self):
 		return self.school_name
 
+class Department(models.Model):
+	user = models.ForeignKey(User, default=1)
+	department_name = models.CharField(max_length=255)
+	department_code = models.IntegerField()
+	department_logo = models.FileField(null=True, blank=True)
+
+	def __str__(self):
+		return self.department_name
 
 class Course(models.Model):
-    
+
 	course_code = models.CharField(max_length=50)
 	course_name = models.CharField(max_length=255)
 	num_tutors = models.IntegerField()
@@ -32,4 +30,3 @@ class Course(models.Model):
 
 	def __str__(self):
 		return self.course_code + ' - ' + self.course_name
-

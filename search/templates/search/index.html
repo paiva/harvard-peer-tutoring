@@ -1,0 +1,82 @@
+{% extends 'search/base.html' %}
+{% block departments_active %}active{% endblock %}
+
+{% block content %}
+<div class="departments-container container-fluid">
+
+    <!-- departments -->
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <p>Welcome {{ user.username }}</p>
+        </div>
+        {% if departments %}
+            {% for department in departments %}
+                <div class="col-sm-4 col-lg-4">
+                    <div class="thumbnail">
+                        <a href="{% url 'search:detail' department.id %}">
+                            <img src="{{ department.department_logo.url }}" class="img-responsive">
+                        </a>
+                        <div class="caption text-center">
+                            <h2>{{ department.department_name }}</h2>
+
+                            <!-- View Details -->
+                            <a href="{% url 'search:detail' department.id %}" class="btn btn-primary btn-sm" role="button" style="width: 75%;">View Courses</a>
+
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% else %}
+            <div class="col-sm-12">
+
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- If user searches and there are courses-->
+    {% if courses %}
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Courses</h3>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Department</th>
+                                    <th>Number of Tutors</th>
+                                    <th>View Tutors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in courses %}
+                                    <tr>
+                                        <td>{{ course.course_code }}</td>
+                                        <td>{{ course.course_name }}</td>
+                                        <td>
+                                            <a href="{% url 'search:detail' course.department.id %}">
+                                                <img src="{{ course.department.department_logo.url }}" class="img-responsive" style="width: 20px; float: left; margin-right: 10px;" />
+                                            </a>
+                                            <a href="{% url 'search:detail' course.department.id %}">{{ course.department.department_name }}</a>
+                                        </td>
+                                        <td>
+                                            {{ course.num_tutors }}
+                                        </td>
+					<td>{{ course.has_tutor_request }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

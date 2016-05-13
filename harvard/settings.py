@@ -65,11 +65,11 @@ WSGI_APPLICATION = 'harvard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'd6bjphpmalk0el', # Or path to database file if using sqlite3.
+        'NAME': 'd8199h7d5veukh', # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'bzsrqwrdjptuzc',
-        'PASSWORD': 'J2Kj3xPGcXzmhHpQHMk68SoPxf',
-        'HOST': 'ec2-54-243-54-21.compute-1.amazonaws.com', # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+        'USER': 'wxrkwskjoiihsa',
+        'PASSWORD': 'oq36kBKQhL3UIr2LUNEfSANLcs',
+        'HOST': 'ec2-54-235-183-28.compute-1.amazonaws.com', # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
         'PORT': '5432', # Set to empty string for default.
     }
 }

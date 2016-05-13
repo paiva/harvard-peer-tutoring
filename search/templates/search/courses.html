@@ -1,0 +1,56 @@
+{% extends 'search/base.html' %}
+{% block title %}All Courses{% endblock %}
+{% block courses_active %}active{% endblock %}
+
+{% block content %}
+<div class="container-fluid courses-container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" {% if filter_by == 'all' %}class="active"{% endif %}><a href="{% url 'search:courses' 'all' %}">View All</a></li>
+                <li role="presentation" {% if filter_by == 'request_tutor' %}class="active"{% endif %}><a href="{% url 'search:courses' 'request_tutor' %}">Request Tutor</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Department</th>
+                                <th>Number of Tutors</th>
+                                <th>View Tutors</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for course in course_list %}
+                                <tr>
+                                    <td>{{ course.course_code }}</td>
+                                    <td>{{ course.course_name }}</td>
+                                    <td>
+                                        <a href="{% url 'search:detail' course.department.id %}">{{ course.department.department_name }}</a>
+                                    </td>
+                                    <td>{{ course.num_tutors }}</td>
+                                    <td>
+                                        {{ course.has_tutor_request }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

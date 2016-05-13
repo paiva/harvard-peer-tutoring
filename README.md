@@ -7,7 +7,7 @@ Harvard Peer Tutoring was developed as part of Harvard's CS50 Final Project.
 It is a proof-of-concept application that allows Harvard students to search for peer tutors
 based on the departments (or concentrations) in a simple, fast, and reliable way.
 
-![Home Page](hpt_1.png)
+![Home Page](media/hpt_1.png)
 
 For this delivery, we have only implemented 13 courses in three departments:
 
@@ -32,7 +32,7 @@ After choosing a department, you can see courses that have tutors available. If
 you need assistance in one of this courses, you can click `Request Tutor` to
 request a tutor in that class.
 
-![Home Page](hpt_2.png)
+![Home Page](media/hpt_2.png)
 
 # Setup and Installation
 

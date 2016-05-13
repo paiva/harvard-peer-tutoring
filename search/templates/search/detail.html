@@ -1,15 +1,13 @@
-{% extends "search/base.html" %}
-
-
-{% block title %} {{ department.department_name }} Details {% endblock %}
+{% extends 'search/base.html' %}
+{% block title %}{{ department }}{% endblock %}
+{% block departments_active %}active{% endblock %}
 
 {% block content %}
+<div class="container-fluid courses-container">
 
-<div class="container-fluid course-container">
-	<div class="row">
+    <div class="row">
 
-
-        <!-- Department Information -->
+        <!-- Left department Info -->
         <div class="col-sm-4 col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -20,22 +18,23 @@
                             <h3>No image to display</h3>
                         {% endif %}
                     </a>
-                    <h1>{{ department.department_name }}</h1>
+                    <h1>{{ department.department_name }} <small>{{ department.code }}</small></h1>
+                    <p>Harvard University</p>
                 </div>
             </div>
         </div>
 
-	 	<!-- Courses Information -->
+        <!-- Right course Info -->
         <div class="col-sm-8 col-md-9">
 
             <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                <li role="presentation" class="active"><a href="{% url 'search:index' %}">Return</a></li>
+                <li role="presentation" class="active"><a href="{% url 'search:detail' department.id %}">View All</a></li>
             </ul>
 
             <div class="panel panel-default">
                 <div class="panel-body">
 
-                    <h3>All Courses</h3>
+                    <h3>All courses</h3>
 
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
@@ -45,9 +44,9 @@
                         <thead>
                         <tr>
                             <th>Course Code</th>
-                            <th>Couse Name</th>
-                            <th>Number of tutors</th>
-                            <th>Request Tutor</th>
+                            <th>Course Name</th>
+                            <th>Number of Tutors</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -56,20 +55,22 @@
                                 <td>{{ course.course_code }}</td>
                                 <td>{{ course.course_name }}</td>
                                 <td>{{ course.num_tutors }}</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">
+                                <td><button type="button" class="btn btn-success">
                                             <i class="fa fa-smile-o" aria-hidden="true"></i> Request Tutor
                                     </button>
-                                </td>
+				</td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
+
                 </div>
             </div>
 
         </div>
-	</div>
+
+    </div>
+
 </div>
 
 {% endblock %}

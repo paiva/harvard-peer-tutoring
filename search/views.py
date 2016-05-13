@@ -27,7 +27,7 @@ def index(request):
         #    ).distinct()
         return render(request, 'search/index.html', {
                 'departments': departments,
-                'courses': course_results,
+                'courses': course_results
             })
         #else:
         #    return render(request, 'search/index.html', {'departments': departments})

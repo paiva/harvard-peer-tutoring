@@ -46,7 +46,7 @@
                             <th>Course Code</th>
                             <th>Course Name</th>
                             <th>Number of Tutors</th>
-                            <th>Actions</th>
+                            <th style="text-align:center">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -54,10 +54,13 @@
                             <tr>
                                 <td>{{ course.course_code }}</td>
                                 <td>{{ course.course_name }}</td>
-                                <td>{{ course.num_tutors }}</td>
-                                <td><button type="button" class="btn btn-success">
-                                            <i class="fa fa-smile-o" aria-hidden="true"></i> Request Tutor
+                                <td align="center">{{ course.num_tutors }}</td>
+                                <td><button type="button" class="btn btn-default">
+                                    Request Tutor
                                     </button>
+                                    <button type="button" class="btn btn-default">
+                                        Become Tutor
+                                        </button>
 				</td>
                             </tr>
                         {% endfor %}

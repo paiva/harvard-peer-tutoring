@@ -15,6 +15,7 @@ class Department(models.Model):
 	department_name = models.CharField(max_length=255)
 	department_code = models.IntegerField()
 	department_logo = models.FileField(null=True, blank=True)
+	department_school = models.CharField(max_length=255,default=None)
 
 	def __str__(self):
 		return self.department_name

@@ -53,12 +53,12 @@ WSGI_APPLICATION = 'harvard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'peer_tutoring', # Or path to database file if using sqlite3.
+        'NAME': 'd6bjphpmalk0el', # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': '128.30.27.191', # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-        'PORT': '6122', # Set to empty string for default.
+        'USER': 'bzsrqwrdjptuzc',
+        'PASSWORD': 'J2Kj3xPGcXzmhHpQHMk68SoPxf',
+        'HOST': 'ec2-54-243-54-21.compute-1.amazonaws.com', # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+        'PORT': '5432', # Set to empty string for default.
     }
 }
 
